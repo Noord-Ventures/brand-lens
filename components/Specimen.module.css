@@ -1,0 +1,74 @@
+.specimen {
+  margin: 0;
+  padding: clamp(24px, 4vw, 32px);
+  min-width: 0;
+  position: relative;
+  break-inside: avoid;
+}
+.specimen .headline {
+  margin: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.business {
+  display: block;
+  margin-top: 24px;
+  font: 400 14px/1.5 Arial, Helvetica, sans-serif;
+}
+.toneLabel { font-weight: 600; }
+.quiet {
+  background: #F7F7F2;
+  color: #202522;
+  border-top: 1px solid #34536B;
+}
+.quiet .headline {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: clamp(28px, 5vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  max-width: 20ch;
+}
+.warm {
+  background: #F6EFE3;
+  color: #30271F;
+  border-radius: 8px;
+  padding: clamp(28px, 4.5vw, 36px);
+}
+.warm::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid #355440;
+  border-radius: 3px;
+  pointer-events: none;
+}
+.warm .headline {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(30px, 5vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+}
+.warm .business { font-family: Georgia, "Times New Roman", serif; font-style: italic; }
+.bold {
+  background: #FFE146;
+  color: #171717;
+  border-bottom: 8px solid currentColor;
+  padding: 24px;
+}
+.bold .headline {
+  font-family: "Arial Black", Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(32px, 6vw, 44px);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  max-width: 15ch;
+}
+@media print {
+  .specimen { background: white; color: black; padding: 20px; }
+  .specimen .headline { font-size: 24pt; }
+  .business { margin-top: 12px; }
+}

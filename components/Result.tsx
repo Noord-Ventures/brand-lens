@@ -44,8 +44,7 @@ export function Result({ direction, code }: { direction: Direction; code: string
 
       <section className="lens-section">
         <h2 className="lens-h">Mood</h2>
-        <p>{d.mood}</p>
-        <Specimen direction={direction} business={d.example.business} headline={d.example.headline} />
+        <Specimen direction={direction} />
       </section>
 
       <section className="lens-section">
