@@ -1,0 +1,67 @@
+{
+  "$schema": "./questions.schema.json",
+  "source": "Product Manager, #experiments thread — spec of record. Copy verbatim.",
+  "directions": {
+    "quiet": {
+      "name": "Quiet and precise",
+      "character": "You want to be trusted before you are noticed. Nothing shouts, everything is in the right place, and the work speaks for itself."
+    },
+    "warm": {
+      "name": "Warm and handmade",
+      "character": "You want people to feel welcome and remembered. Things look touched by a person, not produced by a system."
+    },
+    "bold": {
+      "name": "Bold and direct",
+      "character": "You want to be seen and understood in one second. Strong colour, plain words, no hedging."
+    }
+  },
+  "scoring": {
+    "rule": "Each option maps to exactly one direction. Tally the eight; highest wins.",
+    "tieBreak": "The direction chosen in the earliest question involved in the tie. No randomness.",
+    "encoding": "Eight characters, each 'a' or 'b', question 1 first. e.g. ?a=abbabaab"
+  },
+  "questions": [
+    {
+      "n": 1,
+      "a": { "title": "Brushed steel letters", "detail": "unlit, flush to the wall", "direction": "quiet" },
+      "b": { "title": "Hand-painted sign", "detail": "one strong colour, twice as big as it needs to be", "direction": "bold" }
+    },
+    {
+      "n": 2,
+      "a": { "title": "A thick stoneware mug", "detail": "heavy, slightly uneven", "direction": "warm" },
+      "b": { "title": "Plain white porcelain", "detail": "thin rim, no pattern", "direction": "quiet" }
+    },
+    {
+      "n": 3,
+      "a": { "title": "Swatch", "detail": "cheerful, unmistakable, never subtle", "direction": "bold" },
+      "b": { "title": "Dille & Kamille", "detail": "honest materials, calm shop, no rush", "direction": "warm" }
+    },
+    {
+      "n": 4,
+      "a": { "title": "A matte white box", "detail": "thin label, nothing else", "direction": "quiet" },
+      "b": { "title": "Brown paper and twine", "detail": "folded by hand at the counter", "direction": "warm" }
+    },
+    {
+      "n": 5,
+      "a": { "title": "Cheese market, Friday, 10:00", "detail": "full noise, full square", "direction": "bold" },
+      "b": { "title": "Grote Kerk, Tuesday morning", "detail": "empty, high, quiet", "direction": "quiet" }
+    },
+    {
+      "n": 6,
+      "a": { "title": "The regulars' table", "detail": "they know your order before you sit", "direction": "warm" },
+      "b": { "title": "The queue before opening", "detail": "people waiting because it's worth it", "direction": "bold" }
+    },
+    {
+      "n": 7,
+      "a": { "title": "Polished concrete and glass", "detail": "cool, flat, exact", "direction": "quiet" },
+      "b": { "title": "Painted plywood", "detail": "one loud colour, visible edges", "direction": "bold" }
+    },
+    {
+      "n": 8,
+      "prompt": "What you'd rather a customer say",
+      "a": { "title": "\"They know me.\"", "detail": "", "direction": "warm" },
+      "b": { "title": "\"They never get it wrong.\"", "detail": "", "direction": "quiet" }
+    }
+  ],
+  "slotCounts": { "quiet": 6, "warm": 5, "bold": 5 }
+}
