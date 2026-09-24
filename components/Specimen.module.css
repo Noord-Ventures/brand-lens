@@ -1,6 +1,6 @@
 .specimen {
   margin: 0;
-  padding: clamp(24px, 4vw, 32px);
+  padding: var(--pad);
   min-width: 0;
   position: relative;
   break-inside: avoid;
@@ -12,7 +12,7 @@
 }
 .business {
   display: block;
-  margin-top: 24px;
+  margin-top: var(--pad);
   font: 400 14px/1.5 Arial, Helvetica, sans-serif;
 }
 .toneLabel { font-weight: 600; }
@@ -33,7 +33,7 @@
   background: #F6EFE3;
   color: #30271F;
   border-radius: 8px;
-  padding: clamp(28px, 4.5vw, 36px);
+  padding: calc(var(--pad) * 1.5);
 }
 .warm::before {
   content: "";
@@ -56,14 +56,13 @@
   background: #FFE146;
   color: #171717;
   border-bottom: 8px solid currentColor;
-  padding: 24px;
+  padding: var(--pad);
 }
 .bold .headline {
   font-family: "Arial Black", Arial, sans-serif;
   font-weight: 900;
   font-size: clamp(32px, 6vw, 44px);
   line-height: 1;
-  text-transform: uppercase;
   letter-spacing: -0.035em;
   max-width: 15ch;
 }

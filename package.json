@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:visual": "playwright test"
   },
   "dependencies": {
     "@noorddev/vlak-react": "^0.5.0",
@@ -17,13 +18,12 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@types/node": "^22.15.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "typescript": "^5.8.0",
     "vitest": "^3.2.0"
   },
-  "engines": {
-    "node": ">=18.18"
-  }
+  "engines": { "node": ">=18.18" }
 }

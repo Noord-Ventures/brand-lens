@@ -2,7 +2,7 @@
   {
     "id": "quiet",
     "name": "Quiet and precise",
-    "character": "You want to be trusted before you are noticed. Nothing shouts, everything is in the right place, and the work speaks for itself.",
+    "character": "Your choices lean toward a quiet, precise look: restrained typography, generous space, and clear detail. Nothing shouts, everything sits where it belongs, and the work is left to speak for itself.",
     "tone": ["calm", "exact", "understated", "certain"],
     "say": "What you do, what it costs, when it's ready.",
     "avoid": "Exclamation marks, \"passion\", stock enthusiasm.",
@@ -12,7 +12,7 @@
   {
     "id": "warm",
     "name": "Warm and handmade",
-    "character": "You want people to feel welcome and remembered. Things look touched by a person, not produced by a system.",
+    "character": "Your choices lean toward a warm, handmade look: tactile materials, softer edges, and personal language. Things look touched by a person, not produced by a system.",
     "tone": ["welcoming", "plain", "personal", "unhurried"],
     "say": "Who made it, who's behind the counter, come in and try.",
     "avoid": "\"Solutions\", \"experience\", anything a chain would print.",
@@ -22,7 +22,7 @@
   {
     "id": "bold",
     "name": "Bold and direct",
-    "character": "You want to be seen and understood in one second. Strong colour, plain words, no hedging.",
+    "character": "Your choices lean toward a bold, direct look: strong contrast, large type, and short messages. Plain words, one idea at a time, no hedging.",
     "tone": ["confident", "brief", "useful", "loud"],
     "say": "The offer and the benefit in under eight words.",
     "avoid": "Qualifiers, long sentences, three ideas in one line.",
