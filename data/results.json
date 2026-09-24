@@ -1,23 +1,26 @@
 {
   "quiet": {
     "name": "Quiet and precise",
-    "line": "Less noise. More attention to the details.",
+    "line": "Your choices lean towards calm, clear words and careful details. Give people the facts they need, leave room to breathe and let the work speak for itself.",
     "description": "Your choices lean towards calm layouts, clear words and room to breathe. Start with a restrained palette and let one useful detail take the lead.",
     "say": "What you do, what it costs, when it's ready.",
-    "avoid": "Vague promises and decoration that gets in the way."
+    "avoid": "Vague promises and decoration that gets in the way.",
+    "footer": "A starting point for your next design conversation — not a finished brand strategy."
   },
   "warm": {
     "name": "Warm and handmade",
-    "line": "A welcome you can put into words.",
+    "line": "Your choices lean towards a personal welcome and signs of the people behind the work. Use everyday words, show how things are made and help people feel at home.",
     "description": "Your choices lean towards personal touches, welcoming language and texture. Start with a characterful typeface and write as if you were greeting someone at the door.",
     "say": "Who's behind the work and what someone can expect.",
-    "avoid": "Invented familiarity or handmade claims you can't back up."
+    "avoid": "Invented familiarity or handmade claims you can't back up.",
+    "footer": "A starting point for your next design conversation — not a finished brand strategy."
   },
   "bold": {
     "name": "Bold and direct",
-    "line": "One clear message. Hard to miss.",
+    "line": "Your choices lean towards strong contrasts and a message that's hard to miss. Lead with what you offer, keep the words short and make the next step clear.",
     "description": "Your choices lean towards strong contrast, confident type and short messages. Start with one headline and one strong colour; give both a clear job.",
     "say": "The offer, the benefit and the next step.",
-    "avoid": "Shouting everything at once or promising more than you deliver."
+    "avoid": "Shouting everything at once or promising more than you deliver.",
+    "footer": "A starting point for your next design conversation — not a finished brand strategy."
   }
 }
