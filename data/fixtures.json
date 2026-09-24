@@ -1,5 +1,5 @@
 {
-  "_rule": "Tally the eight answers by direction; highest wins. Tie: the direction chosen in the earliest question involved in the tie wins. No randomness.",
+  "_rule": "Tally the eight answers by direction; highest wins. Tie: the direction chosen in the earliest question whose chosen direction is one of the tied directions wins (not simply the earliest question). No randomness.",
   "_mapping": "Q1 a=quiet b=bold · Q2 a=warm b=quiet · Q3 a=bold b=warm · Q4 a=quiet b=warm · Q5 a=bold b=quiet · Q6 a=warm b=bold · Q7 a=quiet b=bold · Q8 a=warm b=quiet",
   "cases": [
     { "a": "abaabaab", "expect": "quiet", "why": "Quiet 6, Bold 1, Warm 1" },
@@ -7,6 +7,7 @@
     { "a": "babaabba", "expect": "bold",  "why": "Bold 4, Warm 3, Quiet 1" },
     { "a": "bbaaaaaa", "expect": "bold",  "why": "Bold 3, Quiet 3, Warm 2 — tie; Q1 chose Bold" },
     { "a": "bbbbbbbb", "expect": "bold",  "why": "Bold 3 (Q1,Q6,Q7), Quiet 3 (Q2,Q5,Q8), Warm 2 — tie; Q1 chose Bold" },
-    { "a": "aaaaaaaa", "expect": "quiet", "why": "Quiet 3 (Q1,Q4,Q7), Warm 3 (Q2,Q6,Q8), Bold 2 — tie; Q1 chose Quiet" }
+    { "a": "aaaaaaaa", "expect": "quiet", "why": "Quiet 3 (Q1,Q4,Q7), Warm 3 (Q2,Q6,Q8), Bold 2 — tie; Q1 chose Quiet" },
+    { "a": "baabbaab", "expect": "warm",  "why": "Bold 2 (Q1,Q3), Warm 3 (Q2,Q4,Q6), Quiet 3 (Q5,Q7,Q8) — tie; Q1 chose Bold, which is not tied; Q2 is the earliest tied choice and chose Warm" }
   ]
 }
