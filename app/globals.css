@@ -1,0 +1,79 @@
+html,
+body { margin: 0; padding: 0; min-height: 100%; }
+
+/* Use Vlak's native html::before grid, sharing its origin and pitch. */
+:root {
+  --lens-module: var(--grid-size);
+  --lens-origin: var(--pad);
+}
+.lens {
+  box-sizing: border-box;
+  margin-left: var(--lens-origin);
+  width: calc(2 * var(--lens-module) - var(--gutter));
+  padding: 60px 0 80px;
+}
+@media (min-width: 836px) {
+  .lens { width: calc(4 * var(--lens-module) - var(--gutter)); }
+}
+/* One full module inward, never arbitrary centering between grid lines. */
+@media (min-width: 1244px) {
+  .lens { margin-left: calc(var(--lens-origin) + var(--lens-module)); }
+}
+@media (max-width: 480px) {
+  .lens {
+    margin-left: var(--pad);
+    width: calc(100% - 2 * var(--pad));
+    padding: 50px 0 75px;
+  }
+}
+/* Vlak Cards render div.rs-card. Flush edges preserve page anchors. */
+.lens .rs-card { padding: 0; min-width: 0; max-width: none; width: 100%; }
+.lens .rs-card-label, .lens .rs-card-title { text-transform: none; }
+.lens-intro { margin-bottom: 40px; }
+.lens-title { font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; margin: 0; }
+.lens-notice { margin: 20px 0 0; font-size: 0.9375rem; opacity: 0.8; }
+.lens-progress { font-size: 0.75rem; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 30px; }
+.lens-prompt { font-size: 1.375rem; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 30px; }
+.lens-options, .lens-sayavoid { display: grid; gap: var(--gutter); grid-template-columns: 1fr; }
+@media (min-width: 836px) {
+  .lens-options, .lens-sayavoid {
+    grid-template-columns: repeat(2, calc(2 * var(--lens-module) - var(--gutter)));
+  }
+}
+.lens-option {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  cursor: pointer;
+  padding: var(--pad);
+  border: 1px solid currentColor;
+  min-height: 8rem;
+}
+.lens-option:hover, .lens-option:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.lens-option-title { display: block; font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.375rem; }
+.lens-option-detail { display: block; font-size: 0.875rem; opacity: 0.7; }
+.lens-helper { margin: 20px 0 0; font-size: 0.875rem; opacity: 0.7; }
+.lens-actions { display: flex; gap: var(--gutter); align-items: center; flex-wrap: wrap; margin-top: 40px; }
+.lens-link { font-size: 0.875rem; color: inherit; }
+.lens-section { margin-top: 40px; }
+.lens-h { font-size: 0.75rem; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 10px; opacity: 0.7; }
+.lens-section p { margin: 0; }
+.lens-character { font-size: 1.125rem; line-height: 1.5; }
+.lens-tone { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.lens-tone li { font-size: 0.8125rem; padding: 0.25rem 0.625rem; border: 1px solid currentColor; border-radius: 999px; }
+.lens-copy { display: grid; gap: 15px; }
+.lens-confirm { font-size: 0.9375rem; }
+.lens-brief { width: 100%; box-sizing: border-box; font: inherit; font-size: 0.875rem; padding: 15px; border: 1px solid currentColor; background: transparent; color: inherit; }
+.lens-tally { list-style: none; padding: 0; margin: 40px 0 0; font-size: 0.875rem; }
+.lens-tally li { display: flex; justify-content: space-between; padding: 7.5px 0; border-bottom: 1px solid currentColor; }
+.lens-caveat { margin: 30px 0 0; font-size: 0.8125rem; line-height: 1.5; opacity: 0.7; }
+/* Print: the sheet only. One-page pagination is not certified. */
+@media print {
+  @page { size: A4 portrait; margin: 12mm; }
+  .lens-actions, .lens-copy, .lens-progress { display: none !important; }
+  .lens, .lens-result { max-width: none; width: auto; margin: 0; padding: 0; }
+  .lens-section { margin-top: 6mm; break-inside: avoid; }
+  .lens-character { font-size: 11pt; }
+  .lens-section p, .lens-tally, .lens-tone li { font-size: 10.5pt; }
+  .lens-caveat { opacity: 1; font-size: 9pt; }
+}
