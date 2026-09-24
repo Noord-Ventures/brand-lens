@@ -1,4 +1,5 @@
 import questionsJson from "@/data/questions.json";
+import resultsJson from "@/data/results.json";
 
 export type Direction = "quiet" | "warm" | "bold";
 export type Choice = "a" | "b";
@@ -18,11 +19,7 @@ export interface Question {
 export const QUESTIONS: Question[] = questionsJson as Question[];
 export const QUESTION_COUNT = QUESTIONS.length;
 
-export const DIRECTIONS: Record<Direction, { name: string; line: string }> = {
-  quiet: { name: "Quiet and precise", line: "Say less, get it exactly right." },
-  warm: { name: "Warm and handmade", line: "Made by people, for people you know by name." },
-  bold: { name: "Bold and direct", line: "One colour, one message, no apology." },
-};
+export const DIRECTIONS: Record<Direction, { name: string; line: string }> = resultsJson;
 
 const ORDER: Direction[] = ["quiet", "warm", "bold"];
 
