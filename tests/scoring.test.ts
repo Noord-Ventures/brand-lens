@@ -17,6 +17,10 @@ export function score(a: string): Dir {
   return picks.find((d) => tied.includes(d))!;
 }
 
+const all256 = Array.from({ length: 256 }, (_, i) =>
+  i.toString(2).padStart(8, "0").replace(/0/g, "a").replace(/1/g, "b"),
+);
+
 describe("question set", () => {
   it("has eight questions, each option mapped to one direction", () => {
     expect(questions).toHaveLength(8);
@@ -37,27 +41,19 @@ describe("scoring", () => {
   const cases: [string, Dir, string][] = [
     ["abaabaab", "quiet", "Quiet 6, Bold 1, Warm 1"],
     ["aabbbaaa", "warm", "Warm 5, Quiet 3"],
-    ["babaabba", "bold", "Bold 5, Warm 3"],
+    ["babaabba", "bold", "Bold 4, Warm 3, Quiet 1"],
     ["bbaaaaaa", "bold", "Bold 3 / Quiet 3 tie; Q1 chose Bold"],
     ["bbbbbbbb", "bold", "Bold 3 / Quiet 3 tie; Q1 chose Bold"],
-    ["aaaaaaaa", "quiet", "Quiet 3 (Q1,Q4,Q7) / Bold 2 / Warm 3 (Q2,Q6,Q8) tie; Q1 chose Quiet"],
+    ["aaaaaaaa", "quiet", "Quiet 3 / Warm 3 tie; Q1 chose Quiet"],
   ];
   for (const [a, want, why] of cases) {
     it(`${a} → ${want} (${why})`, () => expect(score(a)).toBe(want));
   }
   it("is deterministic", () => {
-    for (let i = 0; i < 256; i++) {
-      const a = i.toString(2).padStart(8, "0").replace(/0/g, "a").replace(/1/g, "b");
-      expect(score(a)).toBe(score(a));
-    }
+    for (const a of all256) expect(score(a)).toBe(score(a));
   });
   it("reaches all three directions across the 256 possible answer strings", () => {
-    const seen = new Set<Dir>();
-    for (let i = 0; i < 256; i++) {
-      const a = i.toString(2).padStart(8, "0").replace(/0/g, "a").replace(/1/g, "b");
-      seen.add(score(a));
-    }
-    expect(seen).toEqual(new Set(["quiet", "warm", "bold"]));
+    expect(new Set(all256.map(score))).toEqual(new Set(["quiet", "warm", "bold"]));
   });
   it("rejects malformed input", () => {
     expect(() => score("abc")).toThrow();
