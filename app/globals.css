@@ -176,6 +176,12 @@ body {
   opacity: 0.7;
 }
 
+.lens-example-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
 .lens-copy {
   display: grid;
   gap: 0.75rem;
@@ -215,4 +221,56 @@ body {
   font-size: 0.8125rem;
   line-height: 1.5;
   opacity: 0.7;
+}
+
+/* Print: the sheet only — A4 portrait, one page. */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  .lens-actions,
+  .lens-copy,
+  .lens-progress {
+    display: none !important;
+  }
+
+  .lens,
+  .lens-result {
+    max-width: none;
+    padding: 0;
+  }
+
+  .lens-section {
+    margin-top: 6mm;
+    break-inside: avoid;
+  }
+
+  .lens-character {
+    font-size: 11pt;
+  }
+
+  .lens-section p,
+  .lens-tally,
+  .lens-tone li {
+    font-size: 10.5pt;
+  }
+
+  .lens-specimen {
+    padding: 6mm;
+    border: 1px solid #000;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .lens-specimen-headline {
+    font-size: 24pt;
+  }
+
+  .lens-caveat {
+    opacity: 1;
+    font-size: 9pt;
+  }
 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Card, CardBody, CardLabel, CardTitle } from "@noorddev/vlak-react";
 import { DIRECTIONS, ORDER, QUESTION_COUNT, parseAnswers, tally, type Direction } from "@/lib/score";
-import { CAVEAT, buildBrief } from "@/lib/brief";
+import { CAVEAT, EXAMPLE_NOTE, buildBrief } from "@/lib/brief";
 import { Specimen } from "./Specimen";
 import { CopyBrief } from "./CopyBrief";
 
@@ -33,11 +33,11 @@ export function Result({ direction, code }: { direction: Direction; code: string
 
       <section className="lens-section lens-sayavoid">
         <div>
-          <h2 className="lens-h">Say</h2>
+          <h2 className="lens-h">Try</h2>
           <p>{d.say}</p>
         </div>
         <div>
-          <h2 className="lens-h">Avoid</h2>
+          <h2 className="lens-h">Use sparingly</h2>
           <p>{d.avoid}</p>
         </div>
       </section>
@@ -46,6 +46,7 @@ export function Result({ direction, code }: { direction: Direction; code: string
         <h2 className="lens-h">Mood</h2>
         <p>{d.mood}</p>
         <Specimen direction={direction} business={d.example.business} headline={d.example.headline} />
+        <p className="lens-example-note">{EXAMPLE_NOTE}</p>
       </section>
 
       <section className="lens-section">
