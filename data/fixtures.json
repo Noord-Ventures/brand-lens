@@ -1,0 +1,11 @@
+{
+  "_rule": "Tally the eight answers by direction; highest wins. Tie: the direction chosen in the earliest question involved in the tie wins. No randomness.",
+  "cases": [
+    { "a": "abaabaab", "expect": "quiet", "why": "Quiet 6, Bold 1, Warm 1 — clear majority" },
+    { "a": "aabbbaaa", "expect": "warm",  "why": "Warm 5, Quiet 3" },
+    { "a": "babaabba", "expect": "bold",  "why": "Bold 5, Warm 3" },
+    { "a": "bbaaaaaa", "expect": "bold",  "why": "Bold 3, Quiet 3, Warm 2 — tie; Q1 is the earliest tied question and chose Bold" },
+    { "a": "abbbabba", "expect": "warm",  "why": "Quiet 1 (Q1), Warm 4 (Q2,Q4,Q6,Q8), Bold 3 (Q3,Q5,Q7)" },
+    { "a": "bbbbbbbb", "expect": "quiet", "why": "Bold 4 (Q1,Q6,Q7 … wait: Q1,Q6,Q7 = 3) — see test; all-b path: Bold Q1,Q6,Q7 = 3, Quiet Q2,Q5,Q8 = 3, Warm Q3,Q4 = 2 → tie, Q1 chose Bold", "expect_override": "bold" }
+  ]
+}
