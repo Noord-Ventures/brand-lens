@@ -45,10 +45,15 @@ describe("scoring", () => {
     ["bbaaaaaa", "bold", "Bold 3 / Quiet 3 tie; Q1 chose Bold"],
     ["bbbbbbbb", "bold", "Bold 3 / Quiet 3 tie; Q1 chose Bold"],
     ["aaaaaaaa", "quiet", "Quiet 3 / Warm 3 tie; Q1 chose Quiet"],
+    ["baabbaab", "warm", "Warm 3 / Quiet 3 tie; Q1 chose Bold (not tied); Q2 is earliest tied choice → Warm"],
   ];
   for (const [a, want, why] of cases) {
     it(`${a} → ${want} (${why})`, () => expect(score(a)).toBe(want));
   }
+  it("tie-break is not simply 'read Q1'", () => {
+    // A naive scorer that returns the Q1 pick on any tie would return bold here.
+    expect(score("baabbaab")).not.toBe("bold");
+  });
   it("is deterministic", () => {
     for (const a of all256) expect(score(a)).toBe(score(a));
   });
