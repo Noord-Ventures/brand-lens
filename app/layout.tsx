@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Brand Lens",
-  description: "Eight choices. One direction you could hand to a designer.",
+  description: "Find a starting point for your brand. Eight choices, one direction to explore with your designer.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

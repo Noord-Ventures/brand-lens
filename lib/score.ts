@@ -1,4 +1,5 @@
 import questionsJson from "@/data/questions.json";
+import directionsJson from "@/data/directions.json";
 import resultsJson from "@/data/results.json";
 
 export type Direction = "quiet" | "warm" | "bold";
@@ -16,12 +17,38 @@ export interface Question {
   b: Option;
 }
 
+export interface DirectionProfile {
+  id: Direction;
+  name: string;
+  /** Culturebot's one-line result voice (data/results.json). */
+  line: string;
+  character: string;
+  tone: string[];
+  say: string;
+  avoid: string;
+  mood: string;
+  example: { business: string; headline: string };
+}
+
 export const QUESTIONS: Question[] = questionsJson as Question[];
 export const QUESTION_COUNT = QUESTIONS.length;
+export const ORDER: Direction[] = ["quiet", "warm", "bold"];
 
-export const DIRECTIONS: Record<Direction, { name: string; line: string }> = resultsJson;
+const voice = resultsJson as Record<Direction, { name: string; line: string }>;
 
-const ORDER: Direction[] = ["quiet", "warm", "bold"];
+export const DIRECTIONS: Record<Direction, DirectionProfile> = Object.fromEntries(
+  (directionsJson as Omit<DirectionProfile, "line">[]).map((d) => [
+    d.id,
+    { ...d, line: voice[d.id]?.line ?? "" },
+  ]),
+) as Record<Direction, DirectionProfile>;
+
+const COMPLETE = new RegExp(`^[ab]{${QUESTION_COUNT}}$`);
+
+/** True only for exactly QUESTION_COUNT characters of a|b (case-insensitive). */
+export function isComplete(raw: string | null | undefined): raw is string {
+  return typeof raw === "string" && COMPLETE.test(raw.toLowerCase());
+}
 
 /** Keep only leading valid a/b characters, at most QUESTION_COUNT. */
 export function parseAnswers(raw: string | null | undefined): Choice[] {
@@ -46,8 +73,8 @@ export function tally(answers: Choice[]): Record<Direction, number> {
 
 /**
  * Highest tally wins. On a tie, the direction chosen in the earliest question
- * that involves a tied direction wins. Deterministic; no randomness.
- * Returns null until all questions are answered.
+ * whose chosen direction is one of the tied directions wins. Deterministic;
+ * no randomness. Returns null until all questions are answered.
  */
 export function score(answers: Choice[]): Direction | null {
   if (answers.length < QUESTION_COUNT) return null;
