@@ -8,6 +8,9 @@
     { "a": "bbaaaaaa", "expect": "bold",  "why": "Bold 3, Quiet 3, Warm 2 — tie; Q1 chose Bold" },
     { "a": "bbbbbbbb", "expect": "bold",  "why": "Bold 3 (Q1,Q6,Q7), Quiet 3 (Q2,Q5,Q8), Warm 2 — tie; Q1 chose Bold" },
     { "a": "aaaaaaaa", "expect": "quiet", "why": "Quiet 3 (Q1,Q4,Q7), Warm 3 (Q2,Q6,Q8), Bold 2 — tie; Q1 chose Quiet" },
-    { "a": "baabbaab", "expect": "warm",  "why": "Bold 2 (Q1,Q3), Warm 3 (Q2,Q4,Q6), Quiet 3 (Q5,Q7,Q8) — tie; Q1 chose Bold, which is not tied; Q2 is the earliest tied choice and chose Warm" }
+    { "a": "baabbaab", "expect": "warm",  "why": "Bold 2 (Q1,Q3), Warm 3 (Q2,Q4,Q6), Quiet 3 (Q5,Q7,Q8) — tie; Q1 chose Bold, which is not tied; Q2 is the earliest tied choice and chose Warm" },
+    { "name": "Noord", "a": "aabbbaaa", "expect": "warm", "why": "Remapped from the old six-axis Noord sketch to PM's eight questions: warm 5, quiet 3. Keeps the warm-paper / human-material preference while still choosing quiet where the pair offers it." },
+    { "name": "Dutch notary", "a": "abbabaab", "expect": "quiet", "why": "Remapped from the old six-axis notary sketch to PM's eight questions: quiet 6, warm 2. Restrained, exact choices win; no bold choices." },
+    { "name": "Children's party shop", "a": "baababba", "expect": "bold", "why": "Remapped from the old six-axis party-shop sketch to PM's eight questions: bold 5, warm 3. Expressive / instantly visible choices win, with warmth still present." }
   ]
 }
